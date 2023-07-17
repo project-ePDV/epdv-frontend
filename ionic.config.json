@@ -1,0 +1,7 @@
+{
+  "name": "ePDV",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
