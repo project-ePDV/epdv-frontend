@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'ePDV',
+  appId: 'com.starttech.epdv',
+  appName: 'epdv',
   webDir: 'www',
   server: {
     androidScheme: 'https'
