@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Product } from 'src/app/modules/shared/models/product.mode';
 import { productListMock } from 'src/app/test-utils/product.mock';
 import { ProductsService } from '../../services/products.service';
+import { ProductsResponse } from '../../models/productsResponse.model';
 
 @Component({
   selector: 'app-home',
@@ -15,17 +16,17 @@ export class HomePage implements OnInit {
   constructor(private menuCtrl: MenuController, private productsService: ProductsService) {}
 
   ngOnInit(): void {
-    this.productsService.getProducts({page: 1}).subscribe((res) => {
+    this.productsService.getProducts({page: '1', size: '6'}).then((res) => {
       this.products = res.records
     })
   }
 
-  openFilterMenu() {
+  openFilterMenu(): void {
     this.menuCtrl.enable(true, 'filter-menu');
     this.menuCtrl.open('filter-menu');
   }
 
-  closeFilterMenu() {
+  closeFilterMenu(): void {
     this.menuCtrl.close('filter-menu');
   }
 }

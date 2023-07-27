@@ -8,7 +8,6 @@ import { StorageRoutingModule } from './storage-routing.module';
 
 import { HomePage } from './pages/home/home.page';
 import { SharedModule } from '../shared/shared-module';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [

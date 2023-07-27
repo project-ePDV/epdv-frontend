@@ -1,21 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Params } from '../models/params.model';
-import { Product } from '../../shared/models/product.mode';
-import { ProductsResponse } from '../models/productsResponse.model';
 import { environment } from 'src/environments/environment'
+import { CapacitorHttp } from '@capacitor/core';
+import { StorageService } from 'src/app/common/services/storage/storage.service';
+import { ProductsResponse } from '../models/productsResponse.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
   apiPath = environment.apiPath
+  token!: string | null;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private storageService: StorageService) {
+    this.token = this.storageService.get('token')
+  }
 
-  getProducts(params: Params) {
-    return this.httpClient.get<ProductsResponse>(`${this.apiPath}products`, {
-      params: {...params}
-    });
+  async getProducts(params: Params): Promise<ProductsResponse> {
+    
+    const requestOptions = {
+      url: `${environment.apiPath}/products`,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`
+      },
+      params
+    };
+
+    return (await CapacitorHttp.get(requestOptions)).data;
   }
 }
