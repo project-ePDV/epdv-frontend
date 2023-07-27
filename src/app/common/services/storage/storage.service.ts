@@ -7,15 +7,19 @@ export class StorageService {
 
   constructor() { }
 
-  set(key: string, value: string) {
+  set(key: string, value: string): void {
     localStorage.setItem(key, value);
   }
 
-  get(key: string) {
-    localStorage.getItem(key);
+  has(key: string): boolean {
+    return !!this.get(key);
   }
 
-  clear() {
+  get(key: string): string | null {
+    return localStorage.getItem(key);
+  }
+
+  clear(): void {
     localStorage.clear();
   }
 }

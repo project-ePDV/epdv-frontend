@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../shared/shared-module';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthPage } from './pages/auth/auth.page';
+import { HomePage } from './pages/home/home.page';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { AuthPage } from './pages/auth/auth.page';
     AuthRoutingModule,
     SharedModule
   ],
-  declarations: [AuthPage]
+  declarations: [HomePage]
 })
 export class AuthModule {}

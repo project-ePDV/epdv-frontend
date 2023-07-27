@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { MenuController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/common/services/auth/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthenticationService } from 'src/app/common/services/auth/auth.service
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
-  constructor(private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService, private menuCtrl: MenuController) {}
 
   toggleTheme(event: Event) {
     let toggleEvent = event as CustomEvent;
@@ -32,6 +32,8 @@ export class MenuComponent {
   }
 
   logout() {
+    this.menuCtrl.close('main');
+    this.menuCtrl.close('filter-menu');
     this.auth.logout();
   }
 }

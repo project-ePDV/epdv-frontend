@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/common/services/auth/auth.service';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.page.html',
-  styleUrls: ['./auth.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class AuthPage  implements OnInit {
+export class HomePage  implements OnInit {
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {}
 
   login(): void {
-    this.auth.login();
+    this.auth.login()
   }
 
   logout() {
