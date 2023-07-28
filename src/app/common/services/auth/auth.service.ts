@@ -10,35 +10,30 @@ const KEY = 'token';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-
   constructor(
     private storageService: StorageService,
     private router: Router
   ) { }
 
-  login(): void {
+  async login(data: { email: string, password: string }) {
+    let response = null;
+
     const requestOptions = {
       url: `${environment.apiPath}/auth/login`,
       headers: { 'Content-Type': 'application/json' },
     };
 
-    const data = {
-      email: 'kalebe@epdv.com.br',
-      password: '$2a$12$HIlwxIpTs3rDg0VnyWF6zOpAnq.p9/89rYrOu9Dp3lAhp/8ES/BSW'
-    };
-
-    CapacitorHttp.post({ ...requestOptions, data })
-      .then(async response => {
-        if (response.status === 200) {
-          const data = await response.data;
-          this.storageService.set(KEY, data['token']);
+    await CapacitorHttp.post({ ...requestOptions, data })
+      .then(async res => {
+        response = await res.data;
+        if (res.status === 200) {
+          
+          this.storageService.set(KEY, response['token']);
           this.router.navigate(['/app/caixa']);
         }
       })
-      .catch(err => {
-        console.log(err)
-      });
+    
+    return {response}
   };
 
   async isAuthenticated(token: string | null): Promise<HttpResponse> {

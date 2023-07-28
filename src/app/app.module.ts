@@ -7,7 +7,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared-module';
-import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @NgModule({
@@ -16,8 +15,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SharedModule,
-    HttpClientModule,
+    SharedModule
   ],
   providers: [InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../shared/shared-module';
 import { AuthRoutingModule } from './auth-routing.module';
 import { HomePage } from './pages/home/home.page';
+import { LoginPage } from './pages/login/login.page';
 
 @NgModule({
   imports: [
@@ -14,8 +15,10 @@ import { HomePage } from './pages/home/home.page';
     FormsModule,
     IonicModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, LoginPage]
 })
 export class AuthModule {}

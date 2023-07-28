@@ -1,11 +1,16 @@
+ion-grid {
+  max-width: 360px;
+  margin: auto !important;
+}
+
 .container-figure {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin: 3rem 0 1rem 0;
   width: 100%;
 
   .logo {
-    width: 50%;
+    width: 8rem;
   }
 }
 

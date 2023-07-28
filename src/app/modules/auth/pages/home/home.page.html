@@ -1,8 +1,8 @@
-<ion-content color="primary">
+<ion-content color="light" class="ion-padding">
   <ion-grid>
     <ion-row>
       <figure class="container-figure">
-        <img class="logo" src="assets/images/logo-epdv.svg" alt="Logo ePDV">
+        <img class="logo" src="assets/images/logo-epdv-dark.svg" alt="Logo ePDV">
       </figure>
     </ion-row>
 
@@ -14,8 +14,8 @@
         com um click
       </p>
       <div class="buttons">
-        <ion-button color="secondary" expand="block" (click)="login()">entrar</ion-button>
-        <ion-button color="secondary" routerLink="/app/caixa">cadastrar</ion-button>
+        <ion-button color="secondary" expand="block" (click)="navigate('auth/login')">entrar</ion-button>
+        <ion-button color="secondary" (click)="navigate('auth/register')">cadastrar</ion-button>
       </div>
     </ion-row>
   </ion-grid>

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiPath: 'http://192.168.0.99:3000',
+  apiPath: 'https://epdv-backend-production.up.railway.app',
 };
