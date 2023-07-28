@@ -21,16 +21,16 @@ export class AuthenticationService {
     const requestOptions = {
       url: `${environment.apiPath}/auth/login`,
       headers: { 'Content-Type': 'application/json' },
+      webFetchExtra: {
+        credentials: "include" as RequestCredentials,
+      },
     };
 
     await CapacitorHttp.post({ ...requestOptions, data })
       .then(async res => {
         response = await res.data;
-        if (res.status === 200) {
-          
-          this.storageService.set(KEY, response['token']);
-          this.router.navigate(['/app/caixa']);
-        }
+        this.storageService.set(KEY, response['token']);
+        this.router.navigate(['/app/caixa']);
       })
     
     return {response}
@@ -42,6 +42,9 @@ export class AuthenticationService {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
+      },
+      webFetchExtra: {
+        credentials: "include" as RequestCredentials,
       },
     };
 
