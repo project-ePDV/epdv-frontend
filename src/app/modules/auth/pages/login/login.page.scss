@@ -1,0 +1,36 @@
+ion-grid {
+  max-width: 360px;
+  margin: auto !important;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 1rem 0;
+  width: 100%;
+
+  img {
+    width: 8rem;
+  }
+}
+
+ion-input {
+  --highlight-color-focused: var(--ion-color-secondary);
+}
+
+a {
+  font-size: 14px;
+  color: var(--ion-color-secondary);
+  display: block;
+}
+
+ion-button {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+ion-text[color='danger'] {
+  font-size: 0.75rem;
+  margin-top: 5px;
+}

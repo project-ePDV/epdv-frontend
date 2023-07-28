@@ -1,0 +1,57 @@
+<ion-content class="ion-padding" *ngIf="this.isContentLoaded">
+  <ion-grid>
+    <ion-row>
+      <figure class="ion-no-margin">
+        <img src="assets/images/logo-epdv-dark.svg" alt="">
+      </figure>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <h2>Bem vindo</h2>
+    </ion-row>
+    <ion-row class="ion-justify-content-center ion-margin-bottom">
+      <p>Efetue login em ePDV para continuar</p>
+    </ion-row>
+    <form [formGroup]="formLogin" id="formLogin">
+      <ion-row class="ion-justify-content-center">
+        <ion-input 
+          label="E-mail" 
+          labelPlacement="floating" 
+          placeholder="exemplo@exemplo.com.br"
+          [errorText]="this.setValidationErrorMessage('email', 'email', validationList)"
+          fill="outline"
+          class="ion-margin-bottom"
+          formControlName="email" autofocus>
+        </ion-input>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-input 
+          label="Senha" 
+          labelPlacement="floating" 
+          placeholder="********"
+          fill="outline"
+          [errorText]="this.setValidationErrorMessage('senha', 'password', validationList)"
+          formControlName="password">
+        </ion-input>
+      </ion-row>
+    </form>
+    <ion-row>
+      <a class="ion-margin-vertical">Esqueceu sua senha?</a>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button 
+        color="secondary" 
+        class="ion-margin-top" 
+        expand="block" 
+        form="formLogin"
+        (click)="onSubmit()">
+        Continuar
+      </ion-button>
+      <ion-text color="danger" *ngIf="this.isInvalidLogin">
+        Usuário ou senha inválidos, tente novamente.
+      </ion-text>
+    </ion-row>
+    <ion-row>
+      <a class="ion-margin-vertical">Ainda não se cadastrou?</a>
+    </ion-row>
+  </ion-grid>
+</ion-content>
